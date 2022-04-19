@@ -1,5 +1,7 @@
 # Algoritmos y estructura de datos 
-![Languaje](https://img.shields.io/github/languages/top/FrescoHAr/AyED) ![Commit](https://img.shields.io/github/last-commit/FrescoHAr/AyED)
+            
+![Languaje](https://img.shields.io/github/languages/top/FrescoHAr/AyED?color=orange&logo=java&logoColor=orange&style=plastic) 
+![Commit](https://img.shields.io/github/last-commit/FrescoHAr/AyED?color=orange&logo=java&logoColor=orange&style=plastic)
 ## Contents:
 
 ### [Unidad 1: Introducción a la teoría de estructuras discretas](https://github.com/FrescoHAr/AyED/tree/master/src/Unidad_1)
