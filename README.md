@@ -1,8 +1,8 @@
-# Algoritmos y estructura de datos
+# Algoritmos y estructura de datos 
+![Languaje](https://img.shields.io/github/languages/top/FrescoHAr/AyED) ![Commit](https://img.shields.io/github/last-commit/FrescoHAr/AyED)
 ## Contents:
 
-### Unidad 1 
-##### [Here](https://github.com/FrescoHAr/AyED/tree/master/src/Unidad_1)
+### [Unidad 1](https://github.com/FrescoHAr/AyED/tree/master/src/Unidad_1)
 - Divisibilidad y números primos
 - Maximo comun divisor y minimo comun multiplo
 - Aritmetica modular
