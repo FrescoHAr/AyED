@@ -1,10 +1,10 @@
 # Algoritmos y estructura de datos 
             
-![Languaje](https://img.shields.io/github/languages/top/frescoh-ar/AyED?color=orange&logo=java&logoColor=orange&style=plastic) 
-![Commit](https://img.shields.io/github/last-commit/frescoh-ar/AyED?color=orange&logo=java&logoColor=orange&style=plastic)
+![Languaje](https://img.shields.io/github/languages/top/frescoh/AyED?color=orange&logo=java&logoColor=orange&style=plastic) 
+![Commit](https://img.shields.io/github/last-commit/frescoh/AyED?color=orange&logo=java&logoColor=orange&style=plastic)
 ## Contents:
 
-### [Unidad 1: Introducción a la teoría de estructuras discretas](https://github.com/frescoh-ar/AyED/tree/master/src/Unidad_1)
+### [Unidad 1: Introducción a la teoría de estructuras discretas](https://github.com/frescoh/AyED/tree/master/src/Unidad_1)
 - Divisibilidad
 - Números primos
 - Maximo comun divisor
