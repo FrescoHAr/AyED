@@ -1,8 +1,15 @@
-package Unidad_1;
+package ar.usa.edu.Unidad1;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * 
+ * @author Hernan Fresco
+ * {@link https://github.com/frescoh}
+ *
+ */
 public class Entero {
+	
 	private int valor;
 	
 	/** Full constructor Entero
@@ -13,6 +20,9 @@ public class Entero {
 		this.valor = valor;
 	}
 
+	/**Constructor entero
+	 * @param a - int
+	 */
 	public Entero() {
 		setValor(0);
 	}
@@ -262,33 +272,35 @@ public class Entero {
 	 */
 	public int[] criba(int inicio,int fin) {
 		int [] listado = new int[fin-inicio+1];
-		int multiplos;
+		int primo = 0;
 		for(int i=0;i<=fin-inicio;i++) {
 			listado[i]=i+inicio;
 		}
-		System.out.println();
 		int indice = 0;
-		while(indice<fin/2) {
-			if(listado[indice]!=0) {
-				if(esPrimo(listado[indice])) {
-					multiplos = listado[indice];
-				}
-				
-				else {
-					if(listado[indice]>1) {
-						multiplos = menorDivisor(listado[indice]);	
-					}
-					else
-						multiplos = inicio+fin;
-					listado[indice]=0;
-					
-					
-				}
-				for(int i=indice+multiplos;i<=fin-inicio;i=i+multiplos) {
-					listado[i]=0;
-				}
+		while(indice<fin/2) { 
+		// Para intervalos desde 1 hasta n se puede usar (primo*primo<fin) en la condicio
+		// en intervalos generados puede provocar errod. Ej: [7..38], 7 es primo y 7*7 >38 por lo tanto solo ingresa una vez al ciclo
+			if(esPrimo(listado[indice])) {
+				primo = listado[indice];
 			}
+			
+			else {
+				if(listado[indice]>1) {
+					primo = menorDivisor(listado[indice]);	
+				}
+				else
+					primo = inicio+fin;
+				listado[indice]=0;
+				
+				
+			}
+			for(int i=indice+primo;i<=fin-inicio;i=i+primo) {
+				listado[i]=0;
+			}
+			
 			indice++;
+			while(indice<fin-inicio+1&&listado[indice]==0)
+				indice++;
 		}
 		return listado;
 	}
@@ -304,7 +316,22 @@ public class Entero {
 	 * 
 	 */
 	public int[] criba(int fin) {
-		return criba(0,fin);
+		//return criba(0,fin);
+		
+		int [] listado = new int[fin+1];
+		for(int i=0;i<=fin;i++) {
+			listado[i]=i;
+		}
+		listado[1]=0;
+		int primo =2;
+		while(primo*primo<=fin) {
+			for(int i=2;i<cociente(fin,primo);i++)
+				listado[i*primo]=0;
+			primo++;
+			while(listado[primo]==0)
+				primo++;
+		}
+		return listado;
 	}
 	
 	/**
@@ -314,7 +341,7 @@ public class Entero {
 	 * criba(int inicio, int fin) -> int[] 
 	 */
 	public int[] criba() {
-		return criba(0,this.getValor());
+		return criba(this.getValor());
 	}
 	
 	
@@ -342,6 +369,14 @@ public class Entero {
 		return this.limpiarCriba(this.criba(inicio,fin));
 	}
 	
+	/**
+	 * Genera una  lista de primos entre dos valores pasados por parametros
+	 * @param fin - int 
+	 * @return ArrayList Integer con todos los valores primos que esten entre 0 y fin
+	 */
+	public ArrayList<Integer> cribaLimpia(int fin) {
+		return this.limpiarCriba(this.criba(fin));
+	}
 	
 	public int menorDivisor(int valor) {
 		if(resto(valor,2)==0)

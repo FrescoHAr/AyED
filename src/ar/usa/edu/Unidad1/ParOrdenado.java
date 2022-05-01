@@ -1,16 +1,29 @@
-package Unidad_1;
+package ar.usa.edu.Unidad1;
 
+/**
+ * @author Hernán Fresco 
+ * http://frescoh.ar
+ */
 public class ParOrdenado {
 	private int a;
 	private int b;
+	
 	public ParOrdenado(int a, int b) {
 		super();
 		this.a = a;
 		this.b = b;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public int getA() {
 		return a;
 	}
+	/**
+	 * 
+	 * @param a
+	 */
 	public void setA(int a) {
 		this.a = a;
 	}
