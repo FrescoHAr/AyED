@@ -4,7 +4,7 @@
 ![Commit](https://img.shields.io/github/last-commit/frescoh/AyED?color=orange&logo=java&logoColor=orange&style=plastic)
 ## Contents:
 
-### [Unidad 1: Introducción a la teoría de estructuras discretas](https://github.com/frescoh/AyED/tree/master/src/Unidad_1)
+### [Unidad 1: Introducción a la teoría de estructuras discretas](https://github.com/frescoh/AyED/tree/master/Unidad%201/src)
 - Divisibilidad
 - Números primos
 - Maximo comun divisor
@@ -18,7 +18,7 @@
 - Manejo de memoria en ejecucion
 - Funciones y procedimientos recursivos
 
-### Unidad 3 : Introduccion a la abstraccion de datos
+### [Unidad 3 : Introduccion a la abstraccion de datos](https://github.com/frescoh/AyED/tree/master/TAD/src)
 - Niveles de abstraccion de datos
 - Tipo de dato abstracto
 
