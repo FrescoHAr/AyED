@@ -1,4 +1,4 @@
-package ar.edu.unsa.Unidad1;
+package src.ar.edu.unsa.Unidad1;
 
 /**
  * @author Hernán Fresco
