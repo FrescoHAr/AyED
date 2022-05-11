@@ -1,11 +1,14 @@
-import java.nio.file.spi.FileSystemProvider;
+import java.util.ArrayList;
 
 public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Operaciones op = new Operaciones();
 		
+		/**
+		 * Quedan las pruebas comentadas para despues hacer un menú
+		 */	
+		/*
 		int a= 13;
 		int b= 3;
 		
@@ -43,6 +46,30 @@ public class Test {
 		}
 		System.out.println("Suma de los elementos de la matriz mientras se la cargaba= "+suma);
 		System.out.println("Suma de los elemtentos de la matriz con el metodo sumaMatriz= "+Operaciones.sumaMatriz(matriz));
+		
+		
+		int listaPrimos[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
+		boolean resultado[] = Operaciones.sonPrimos(listaPrimos);
+		for(boolean valor:resultado)
+			System.out.println(valor);
+		
+		Operaciones.bomba(15, 3);
+		*/
+		Operaciones mochila = new Operaciones();
+		int pesos[] = {4,3,6,2,1};
+		System.out.println("Antes de la copia: "+mochila.mochila(pesos, 12));
+		ArrayList<Integer> solucion = new ArrayList<>(mochila.mochila(pesos, 12));
+		System.out.println("Solucion: "+solucion);
+		for(int indice: solucion)
+			System.out.print(pesos[indice]+"  ");
+		
+		
+		System.out.println();
+		for(int i=0; i <20; i++) {
+			System.out.println("Mauricio les regala "+i+" pesos: ");
+			System.out.println(Operaciones.mauricio(i)+" dias");
+		}
+			
 	}
 
 }

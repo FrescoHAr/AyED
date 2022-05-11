@@ -8,6 +8,19 @@ import java.util.HashMap;
  * https://frescoh.ar
  */
 public class Operaciones {
+	
+	/**
+	 * Atributos usados en el metodo mochila
+	 */
+	private int cargaMaxima;
+	private ArrayList<Integer> mochilaMaxima;
+	
+	public Operaciones() {
+		this.cargaMaxima=0;
+		this.mochilaMaxima = new ArrayList<Integer>();
+		
+	}
+	
 	/**Calcula la potencia de una base elevado a un exponente. Datos pasados por parametro
 	 * 
 	 * @param base - int base
@@ -295,5 +308,144 @@ public class Operaciones {
 			suma+=sumaR(matriz[fila],0,0);
 			return sumaMatrizR(matriz, fila+1, suma);
 		}
+	}
+	
+	/**
+	 * Devuelve una lista del mismo tamaño que la que se recibe por parametro, pero con valores booleanos
+	 * @param lista - int numeros[]
+	 * @return		- boolean salida[] donde salida[i] = <br>true: si numeros[i] es primo<br>false: si numeros[i] no es primo 
+	 */
+	public static boolean[] sonPrimos(int lista[]) {
+		boolean evaluados[] = new boolean[lista.length];
+		return sonPrimosR(lista, evaluados,0);
+		
+	}
+	
+	/**Metodo recursivo
+	 * Devuelve una lista del mismo tamaño que la que se recibe por parametro, pero con valores booleanos
+	 * @param lista - int numeros[]
+	 * @return		- boolean salida[] donde salida[i] = <br>true: si numeros[i] es primo<br>false: si numeros[i] no es primo 
+	 */
+	private static boolean[] sonPrimosR(int lista[], boolean evaluados[], int indice) {
+		if(indice== lista.length)
+			return evaluados;
+		else {
+			evaluados[indice] = esPrimo(lista[indice]);
+			return sonPrimosR(lista,evaluados,indice+1);
+		}
+	}
+	
+	/**dados dos numeros N y B, tales que B<N, podemos hacer que N explote usando a B como bomba. 
+	 * cuando N explota se parte en dos numeros N1 = N/B y n2 = N - N/B produciendo una reaccion en cadena  hasta que los fragmentos de N sean menores o iguales a B
+	 * 
+	 * @param nExplota
+	 * @param bomba
+	 */
+	public static void bomba(int nExplota, int bomba) {
+		if(nExplota>bomba) {
+			bomba(nExplota/bomba,bomba);
+			bomba(nExplota-nExplota/bomba,bomba);
+		}
+		else
+			System.out.print(nExplota+", ");
+		
+	}
+	
+	/**
+	 * metodo que se encarga de que cada vez que se llame al moto mochila, los atributos globales que se usaran esten inicializdos de manera correcta.
+	 */
+	private  void limpiarMochila() {
+		this.cargaMaxima=0;
+		this.mochilaMaxima = new ArrayList<>();
+	}
+	
+	
+	/**
+	 * Resuelve el problema de la mochila, intentando ocupar la capacidad total de la misma o, en caso de no poder, reducir el espacio sin usar al minimo 
+	 * @param pesos 		- int[] Array con los pesos de los elementos que se cargaran en la mochila
+	 * @param capacidad		- int 	Capacidad maxima de la mochila
+	 * @return				- ArrayList<Integer> que contiene los indices de pesos[] que optimizan la carga de la mochila
+	 */
+	public  ArrayList<Integer> mochila(int pesos[], int capacidad) {
+		this.limpiarMochila();
+		ArrayList<Integer> temp= new ArrayList<>();
+		mochilaR(pesos, capacidad,0,0,temp);
+		return this.mochilaMaxima;
+	}
+	
+	private  void mochilaR(int pesosDeLibros[],int capacidad,int indice, int cargaActual, ArrayList<Integer> mochilaActual) {
+		/**
+		 * Este metodo usa dos atributos que se declaran en las primeras lineas de la clase
+		 * int cargaMaxima y ArrayList<Integer> mochilaMaxima 
+		 */
+		if(cargaActual==capacidad) {
+			this.mochilaMaxima = mochilaActual;
+			this.cargaMaxima = cargaActual;
+		}
+		else {
+			if(indice == pesosDeLibros.length) {
+				if(cargaActual>this.cargaMaxima) {
+					this.mochilaMaxima=mochilaActual;
+					this.cargaMaxima = cargaActual;
+				}
+			}else {
+				ArrayList<Integer> toma = new ArrayList<>(mochilaActual);
+				ArrayList<Integer> noToma = new ArrayList<>(mochilaActual);
+				int cargaToma = cargaActual;
+				if(cargaActual+pesosDeLibros[indice]<=capacidad){
+					toma.add(indice);
+					cargaToma += pesosDeLibros[indice];
+				}
+				mochilaR(pesosDeLibros, capacidad, indice+1, cargaToma, toma);
+				mochilaR(pesosDeLibros, capacidad, indice+1, cargaActual, noToma);
+			}
+		}		
+	}
+	
+	/**
+	 * Atributo usado exclusivamente por el meotodo mochila
+	 * @return int - El peso que tiene la mochila despues de cargarla de manera optima. <br>0 por defecto
+	 */
+	public int getCargaMaxima() {
+		return cargaMaxima;
+	}
+	
+	/**
+	 * Atributo usado exclusivamente por el metodo mochila
+	 * @return - ArrayList< Integer> que contiene los indices correspondiente a los pesos dentro del array que se envia por parametro a this.mochila,
+	 *  que hacen que la carga de la mochila sea optima. <br>Vacio por defecto.
+	 */
+	public ArrayList<Integer> getMochilaMaxima() {
+		return mochilaMaxima;
+	}
+	
+	
+	/**
+	 * Metodos para resolver el ejercicio 13 del practico de recursividad:
+	 * mauricio
+	 * daniel
+	 * claudio
+	 */
+	
+	public static int mauricio(double  pesos) {
+		int diasDaniel =daniel(pesos,0);
+		int diasClaudio = claudio(pesos,0);
+		if(diasDaniel >diasClaudio)
+			return diasDaniel;
+		else
+			return diasClaudio;
+		
+	}
+	private static int daniel(double pesos,int dias) {
+		if(pesos<=1)
+			return dias;
+		return claudio(pesos*0.5,dias+1);
+		
+	}
+	
+	private static int claudio(double pesos, int dias) {
+		if(pesos<=1)
+			return dias;
+		return daniel(pesos*2/3,dias+1);
 	}
 }
