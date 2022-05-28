@@ -364,7 +364,7 @@ public class Operaciones {
 	 * Resuelve el problema de la mochila, intentando ocupar la capacidad total de la misma o, en caso de no poder, reducir el espacio sin usar al minimo 
 	 * @param pesos 		- int[] Array con los pesos de los elementos que se cargaran en la mochila
 	 * @param capacidad		- int 	Capacidad maxima de la mochila
-	 * @return				- ArrayList<Integer> que contiene los indices de pesos[] que optimizan la carga de la mochila
+	 * @return				- ArrayList Integer que contiene los indices de pesos[] que optimizan la carga de la mochila
 	 */
 	public  ArrayList<Integer> mochila(int pesos[], int capacidad) {
 		this.limpiarMochila();
@@ -372,11 +372,18 @@ public class Operaciones {
 		mochilaR(pesos, capacidad,0,0,temp);
 		return this.mochilaMaxima;
 	}
-	
+	/**
+	 * Mejorar con optimizacion combinatoria
+	 * @param pesosDeLibros		- int[] 
+	 * @param capacidad			- int 
+	 * @param indice			- int
+	 * @param cargaActual		- int
+	 * @param mochilaActual		- ArrayList<Integer\>
+	 */
 	private  void mochilaR(int pesosDeLibros[],int capacidad,int indice, int cargaActual, ArrayList<Integer> mochilaActual) {
 		/**
 		 * Este metodo usa dos atributos que se declaran en las primeras lineas de la clase
-		 * int cargaMaxima y ArrayList<Integer> mochilaMaxima 
+		 * int cargaMaxima y ArrayList Integer mochilaMaxima 
 		 */
 		if(cargaActual==capacidad) {
 			this.mochilaMaxima = mochilaActual;
@@ -412,7 +419,7 @@ public class Operaciones {
 	
 	/**
 	 * Atributo usado exclusivamente por el metodo mochila
-	 * @return - ArrayList< Integer> que contiene los indices correspondiente a los pesos dentro del array que se envia por parametro a this.mochila,
+	 * @return - ArrayList Integer  que contiene los indices correspondiente a los pesos dentro del array que se envia por parametro a this.mochila,
 	 *  que hacen que la carga de la mochila sea optima. <br>Vacio por defecto.
 	 */
 	public ArrayList<Integer> getMochilaMaxima() {

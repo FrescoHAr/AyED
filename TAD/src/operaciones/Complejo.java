@@ -1,3 +1,6 @@
+package operaciones;
+
+import interfaces.Operaciones;
 
 public class Complejo implements Operaciones {
 	private double real;
@@ -6,6 +9,10 @@ public class Complejo implements Operaciones {
 	public Complejo(double real, double imaginaria) {
 		this.real = real;
 		this.imaginaria = imaginaria;
+	}
+	public Complejo(Complejo c) {
+		this.setReal(c.getReal());
+		this.setImaginaria(c.getImaginaria());
 	}
 	
 	public Complejo(){
@@ -34,7 +41,7 @@ public class Complejo implements Operaciones {
 		else
 			return getReal() + " - " + -getImaginaria() + " i";
 	}
-
+	
 	public void sumar(Object a, Object b) {
 		Complejo aux1 = (Complejo)a;
 		Complejo aux2 = (Complejo)b;
@@ -69,6 +76,13 @@ public class Complejo implements Operaciones {
 		this.imaginaria = a1*d + c*b1;
 		
 		
+	}
+	
+	
+	public Complejo conjugar() {
+		Complejo c = new Complejo(this);
+		c.setImaginaria(-c.getImaginaria());
+		return c;
 	}
 
 	public void potencia(Object a, int b) {
@@ -109,6 +123,8 @@ public class Complejo implements Operaciones {
 	}
 
 	
-	
+	public double modulo() {
+		return (double)Math.round(Math.sqrt(Math.pow(real, 2)+Math.pow(imaginaria,2))*100)/100;
+	}
 
 }
