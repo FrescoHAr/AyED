@@ -20,7 +20,7 @@ public class ColaSLinkedListEj10 extends ColaSLinkedList implements MetodosEj10{
 
 	@Override
 	public void invertir() {
-		ColaSLinkedList aux = new ColaSLinkedList();
+		PilaSLinkedList aux = new PilaSLinkedList();
 		while(!estaVacia()) {
 			aux.meter(sacar());
 		}

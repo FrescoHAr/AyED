@@ -4,4 +4,6 @@
 *.project
 *.settings
 Test/
+*.txt
+*.csv
 !pilaEnteros.txt

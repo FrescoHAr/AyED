@@ -21,10 +21,8 @@ public class ColaSLinkedList implements Contenedor{
 			this.finalC.setNextNodo(new Nodo(o));
 			this.finalC=this.finalC.getNextNodo();
 		}else {
-			System.out.println("entré");
 			this.frenteC = new Nodo(o);
 			this.finalC=this.frenteC;
-			System.out.println("Frente: "+this.frenteC);
 		}
 	}
 
@@ -32,14 +30,12 @@ public class ColaSLinkedList implements Contenedor{
 	public Object sacar() {
 		if(!estaVacia()) {
 			Object primero = this.frenteC.getNodoinfo();
-			System.out.println(primero+" es el primero");
 			this.frenteC=this.frenteC.getNextNodo();
 			if(estaVacia())
 				this.finalC=null;
 			return primero;
 			
 		}
-		System.out.println("Paso por aqui");
 		return null;
 	}
 
