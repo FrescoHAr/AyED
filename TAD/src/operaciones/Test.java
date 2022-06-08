@@ -23,7 +23,6 @@ public class Test {
 		c3.potencia(c3, 4);
 		System.out.println(c3);
 
-		c3.dividir(c1, c2);
 		System.out.println("c1/c2= "+c3);
 		
 		

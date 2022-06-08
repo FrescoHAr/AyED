@@ -86,8 +86,6 @@ public class Complejo implements Operaciones {
 	}
 
 	public void potencia(Object a, int b) {
-		// TODO Auto-generated method stub
-		//ver cómo se puede hacer esto con polares.
 		Complejo polar = this.aPolar((Complejo)a);
 		this.real=(double)Math.round(Math.pow(polar.getReal(), b)*1000)/1000;
 		this.imaginaria = polar.getImaginaria()*b;

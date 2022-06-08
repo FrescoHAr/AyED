@@ -7,22 +7,21 @@ public class ComplejoWithDivision extends Complejo implements OperacionesWithDiv
 	
 	
 	/**
-	 * 
+	 *Void Constructor
 	 */
 	public ComplejoWithDivision() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @param c
+	/** Copy contructor 
+	 * @param c Complejo
 	 */
 	public ComplejoWithDivision(Complejo c) {
 		super(c);
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
+	/** Full contructor
 	 * @param real
 	 * @param imaginaria
 	 */
