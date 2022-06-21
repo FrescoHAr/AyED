@@ -19,11 +19,10 @@ public class Capicua {
 	}
 	
 	public void separar(PilaSLinkedList pila) {
-		int ultimo;
 		ColaArr colaDigitos;
 		PilaArr pilaDigitos;
 		while(!pila.estaVacia()) {
-			ultimo= (int) pila.sacar();
+			int ultimo = (int) pila.sacar();
 			int aux = ultimo;
 			colaDigitos = new ColaArr(String.valueOf(ultimo).length());
 			pilaDigitos = new PilaArr(String.valueOf(ultimo).length());
