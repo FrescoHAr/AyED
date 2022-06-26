@@ -25,18 +25,12 @@ public class ColaDePrioridad extends Lista2DLinkedL{
 		return p1.getPrioridad() > p2.getPrioridad();
 	}
 
-	@Override
-	public Object devolver(int posicion) {
-		Object o = super.devolver(0);
+	public Proceso devolver() {
+		Proceso p =(Proceso) super.devolver(0);
 		eliminar(0);
-		return o;
-		
+		return p;
 	}
-	
-	public Object devolver() {
-		return this.devolver(0);
-	}
-	
-	
+
+
 
 }

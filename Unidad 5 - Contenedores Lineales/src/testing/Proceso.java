@@ -6,7 +6,7 @@ public class Proceso {
 	private int tiempo;
 	private int numDeAtenciones;
 	private int prioridad;
-	
+
 	public Proceso(){
 		this.id = nextID++;
 		this.tiempo = (new Random().nextInt(10)) + 1;
@@ -14,28 +14,28 @@ public class Proceso {
 		this.prioridad = (new Random().nextInt(10)) + 1;
 		System.out.println("Proceso ID: " + this.id + " tiempo: " + this.tiempo+" prioridad:"+this.prioridad);
 	}
-	
+
 	public int getId(){
 		return this.id;
 	}
-	
+
 	public int getTiempo(){
 		return this.tiempo;
 	}
-	
+
 	public void setTiempo(int tiempo){
 		this.tiempo = tiempo;
 	}
-	
+
 	public void incNumAtenciones(){
 		this.numDeAtenciones++;
 	}
-	
+
 	public int getNumDeAtenciones(){
 		return this.numDeAtenciones;
 	}
-	
-	
+
+
 
 	public int getPrioridad() {
 		return prioridad;
@@ -51,7 +51,7 @@ public class Proceso {
 				+ prioridad + "]";
 	}
 
-	
-	
-	
+
+
+
 }
